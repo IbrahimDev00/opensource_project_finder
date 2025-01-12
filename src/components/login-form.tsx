@@ -17,7 +17,7 @@ export function LoginForm({
 }: React.ComponentPropsWithoutRef<"div">) {
   // githb oauth
   async function handleSignIn() {
-    await signIn("github", { callbackUrl: "https://projectquest-five.vercel.app/" });
+    await signIn("github", { callbackUrl: "/api/auth/callback/github" });
   }
 
   return (
