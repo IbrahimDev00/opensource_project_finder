@@ -38,7 +38,6 @@ export function LoginForm({
                   id="email"
                   type="email"
                   placeholder="m@example.com"
-                  required
                   className="text-black bg-white border-black" 
                 />
               </div>
@@ -55,7 +54,6 @@ export function LoginForm({
                 <Input
                   id="password"
                   type="password"
-                  required
                   className="text-black bg-white border-black" 
                 />
               </div>
