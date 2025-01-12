@@ -1,3 +1,4 @@
+
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -53,9 +54,9 @@ export function LoginForm({
                   className="text-black bg-white border-black" // Ensures visible text and background
                 />
               </div>
-              <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full">
                 Login
-              </Button>
+                </Button>
               <Button className="w-full">Login with GitHub</Button>
             </div>
             <div className="mt-4 text-center text-sm">
