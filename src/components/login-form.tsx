@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -10,11 +9,17 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { signIn } from "next-auth/react"
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
+  // githb oauth
+  async function handleSignIn() {
+    await signIn("github", { callbackUrl: "/api/auth/callback/github" });
+  }
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
@@ -33,8 +38,7 @@ export function LoginForm({
                   id="email"
                   type="email"
                   placeholder="m@example.com"
-                  required
-                  className="text-black bg-white border-black" // Ensures visible text and background
+                  className="text-black bg-white border-black" 
                 />
               </div>
               <div className="grid gap-2">
@@ -50,24 +54,19 @@ export function LoginForm({
                 <Input
                   id="password"
                   type="password"
-                  required
-                  className="text-black bg-white border-black" // Ensures visible text and background
+                  className="text-black bg-white border-black" 
                 />
               </div>
-                <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full">
                 Login
-                </Button>
-              <Button className="w-full">Login with GitHub</Button>
-            </div>
-            <div className="mt-4 text-center text-sm">
-              Don&apos;t have an account?{" "}
-              <a href="#" className="underline underline-offset-4">
-                Sign up
-              </a>
+              </Button>
+              <Button onClick={handleSignIn} className="w-full">
+                Login with GitHub
+              </Button>
             </div>
           </form>
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
