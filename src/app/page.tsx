@@ -1,5 +1,4 @@
 import { getServerSession } from "next-auth/next";
-import { SessionProvider } from "next-auth/react";
 import { authOptions } from "@/app/api/auth/[...nextauth]"; 
 import { redirect } from "next/navigation";
 import { signOut } from "next-auth/react";
